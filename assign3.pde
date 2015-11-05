@@ -1,5 +1,23 @@
 //You should implement your assign3 here.
 
+final int GAME_START=0;
+final int GAME_RUN=1;
+final int GAME_OVER=2;
+int state;
+int bloodSpeed=20;
+PImage startImg2;
+PImage startImg1;
+PImage endImg1;
+PImage endImg2;
+PImage bg1Img;
+PImage bg2Img;
+PImage enemyImg;
+PImage fighterImg;
+PImage hpImg;
+PImage treasureImg;
+int bg1x=640;
+int bg2x=0;
+int x=0;
 int y=0;
 int hpX=0;
 int hpY=0;
@@ -109,6 +127,7 @@ void draw() {
     }
            
     }
+       
    
 
 
