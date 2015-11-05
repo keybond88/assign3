@@ -27,8 +27,9 @@ int enemyY=floor(random (450));
 int treasureY=floor(random (450));
 int bloodX=40;
 int spaceX=50;
-int spaceY=20;
+int spaceY=40;
 int enemyX2=0;
+int enemyX3=0;
 
 int fighterImgX;
 int fighterImgY;
@@ -82,7 +83,7 @@ void draw() {
           image(bg2Img,y,0); 
           bg1x=bg1x+5;
           bg2x=bg2x+5;
-          enemyX %= 1780;
+          enemyX %= 2670;
          if (enemyX <= 890){
             for(i=0;i<5;i=i+1){
             image(enemyImg,enemyX-i*spaceX,enemyY);
@@ -94,12 +95,28 @@ void draw() {
               image(enemyImg,enemyX2-i*spaceX,enemyY+i*spaceY);
               }
             }
+         if (enemyX > 1780 ){
+             enemyX3=enemyX % 890; 
+             for(i=0;i<5;i=i+1){
+              if (i<=2) {
+              image(enemyImg,enemyX3-i*spaceX,enemyY+i*spaceY);
+              image(enemyImg,enemyX3-i*spaceX,enemyY-i*spaceY);
+               }
+               else{
+              image(enemyImg,enemyX3-i*spaceX,enemyY+(i-4)*spaceY);
+              image(enemyImg,enemyX3-i*spaceX,enemyY-(i-4)*spaceY);
+               }
+              }
+         }
           enemyX = enemyX +5;
           if(enemyX==890){
-          enemyY=floor(random(420));
+          enemyY=floor(random(280));
           }
           if(enemyX==1780){
-          enemyY=floor(random(420));
+          enemyY=floor(random(80,400));
+          }
+          if(enemyX==2670){
+          enemyY=floor(random(400));
           }
           image(hpImg,hpX,hpY);
           image(treasureImg,treasureX,treasureY);
