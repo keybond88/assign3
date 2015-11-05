@@ -81,13 +81,17 @@ void draw() {
           image(bg2Img,y,0); 
           bg1x=bg1x+5;
           bg2x=bg2x+5;
-          enemyX %= 640;
+          enemyX %= 890;
          
             for(i=0;i<5;i=i+1){
-            image(enemyImg,enemyX+i*spaceX,enemyY);
+            image(enemyImg,enemyX-i*spaceX,enemyY);
             
           }
-          enemyX = enemyX +1;
+          
+          enemyX = enemyX +5;
+          if(enemyX==890){
+          enemyY=floor(random(420));
+          }
           image(hpImg,hpX,hpY);
           image(treasureImg,treasureX,treasureY);
           image(fighterImg,fighterImgX,fighterImgY);
