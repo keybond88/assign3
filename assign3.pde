@@ -1,33 +1,16 @@
 //You should implement your assign3 here.
 
-final int GAME_START=0;
-final int GAME_RUN=1;
-final int GAME_OVER=2;
-int state;
-int bloodSpeed=20;
-PImage startImg2;
-PImage startImg1;
-PImage endImg1;
-PImage endImg2;
-PImage bg1Img;
-PImage bg2Img;
-PImage enemyImg;
-PImage fighterImg;
-PImage hpImg;
-PImage treasureImg;
-int bg1x=640;
-int bg2x=0;
-int x=0;
 int y=0;
 int hpX=0;
 int hpY=0;
 int treasureX=0;
 int enemyX=0;
-int enemyY=floor(random (475));
-int treasureY=floor(random (475));
+int enemyY=floor(random (450));
+int treasureY=floor(random (450));
 int bloodX=40;
 int spaceX=50;
 int spaceY=20;
+int enemyX2=0;
 
 int fighterImgX;
 int fighterImgY;
@@ -81,15 +64,23 @@ void draw() {
           image(bg2Img,y,0); 
           bg1x=bg1x+5;
           bg2x=bg2x+5;
-          enemyX %= 890;
-         
+          enemyX %= 1780;
+         if (enemyX <= 890){
             for(i=0;i<5;i=i+1){
             image(enemyImg,enemyX-i*spaceX,enemyY);
-            
+            }
           }
-          
+         if (enemyX >890 && enemyX <= 1780 ){
+             enemyX2=enemyX % 890; 
+             for(i=0;i<5;i=i+1){
+              image(enemyImg,enemyX2-i*spaceX,enemyY+i*spaceY);
+              }
+            }
           enemyX = enemyX +5;
           if(enemyX==890){
+          enemyY=floor(random(420));
+          }
+          if(enemyX==1780){
           enemyY=floor(random(420));
           }
           image(hpImg,hpX,hpY);
@@ -118,7 +109,6 @@ void draw() {
     }
            
     }
-       
    
 
 
